@@ -1,56 +1,66 @@
-import { icons } from "@/config/icons";
+import { ArrowUp } from "lucide-react";
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 export const FooterContent = () => {
+  const techTags = ["React", "TypeScript", "Tailwind CSS", "Motion"];
+
   return (
-    <div className="relative box-border caret-transparent max-w-screen-xl outline-[oklab(0.708_0_0_/_0.5)] mx-auto">
-      <div className="items-center box-border caret-transparent gap-x-6 flex flex-col justify-between outline-[oklab(0.708_0_0_/_0.5)] gap-y-6 md:flex-row">
-        <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
-          <button className="relative bg-transparent caret-transparent block outline-[oklab(0.708_0_0_/_0.5)] text-center p-0 mb-4">
-            <span className="text-transparent text-xl font-black bg-clip-text bg-[linear-gradient(to_right,oklch(0.902_0.063_306.703)_0%,oklch(0.714_0.203_305.504)_100%)] box-border tracking-[-0.5px] leading-7 outline-[oklab(0.708_0_0_/_0.5)] uppercase">
-              shayxo.dev
-            </span>
-          </button>
-          <p className="text-[oklab(0.902_0.037653_-0.0505099_/_0.5)] text-sm box-border caret-transparent leading-5 outline-[oklab(0.708_0_0_/_0.5)]">
-            © 2024 Muhammad Shayan. All rights reserved.
+    <div className="relative box-border caret-transparent max-w-screen-xl mx-auto px-6 outline-[oklab(0.708_0_0_/_0.5)]">
+      <div className="relative py-8">
+        {/* Row 1: Copyright left, Back to Top button right */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Copyright - Left */}
+          <p className="text-[11px] leading-[18px] text-[oklab(0.80_0.02_-0.05_/_0.75)] box-border caret-transparent">
+            © 2025 ·{" "}
+            <span className="text-[oklch(0.902_0.063_306.703)]">
+              Muhammad Shayan
+            </span>{" "}
+            · shayxo.dev
           </p>
+
+          {/* Back to Top Button - Right (flatter, subtle glow like design) */}
+          <button
+            onClick={scrollToTop}
+            className="
+              inline-flex items-center gap-2 rounded-full
+              px-7 py-2
+              text-[11px] font-semibold tracking-[0.20em] uppercase
+              text-[oklch(0.96_0.04_305.5)]
+              bg-[linear-gradient(135deg,oklch(0.66_0.20_305.5),oklch(0.56_0.18_305.5))]
+              border border-[oklch(0.78_0.23_305.5)]
+              shadow-[0_10px_24px_oklch(0.25_0.08_305.5_/_0.45)]
+              hover:shadow-[0_12px_30px_oklch(0.25_0.08_305.5_/_0.6)]
+              transition-all duration-200
+              whitespace-nowrap
+            "
+          >
+            BACK TO TOP
+            <ArrowUp className="w-4 h-4" />
+          </button>
         </div>
-        <div className="items-center box-border caret-transparent gap-x-6 flex outline-[oklab(0.708_0_0_/_0.5)] gap-y-6">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[oklab(0.902_0.037653_-0.0505099_/_0.6)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] transition-colors duration-300 hover:text-[oklch(0.902_0.063_306.703)]"
-          >
-            <img
-              src={icons.social1}
-              alt="GitHub"
-              className="box-border caret-transparent h-6 outline-[oklab(0.708_0_0_/_0.5)] w-6"
-            />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[oklab(0.902_0.037653_-0.0505099_/_0.6)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] transition-colors duration-300 hover:text-[oklch(0.902_0.063_306.703)]"
-          >
-            <img
-              src={icons.social2}
-              alt="LinkedIn"
-              className="box-border caret-transparent h-6 outline-[oklab(0.708_0_0_/_0.5)] w-6"
-            />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[oklab(0.902_0.037653_-0.0505099_/_0.6)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] transition-colors duration-300 hover:text-[oklch(0.902_0.063_306.703)]"
-          >
-            <img
-              src={icons.social3}
-              alt="Twitter"
-              className="box-border caret-transparent h-6 outline-[oklab(0.708_0_0_/_0.5)] w-6"
-            />
-          </a>
+
+        {/* Horizontal divider (same as design) */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.714_0.203_305.504_/_0.18)] to-transparent mt-8 mb-5" />
+
+        {/* Row 2: Tech tags centered */}
+        <div className="flex items-center justify-center gap-3 flex-wrap pb-6">
+          {techTags.map((tech) => (
+            <span
+              key={tech}
+              className="
+                px-4 py-1.5 rounded-full
+                border border-[oklch(0.714_0.203_305.504_/_0.35)]
+                bg-[oklch(0.225_0.03_305.5_/_0.6)]
+                text-[oklch(0.86_0.03_305.5)]
+                text-xs font-medium tracking-wide
+              "
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
     </div>

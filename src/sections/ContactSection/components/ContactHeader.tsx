@@ -8,7 +8,7 @@ export const ContactHeader = () => {
         <div className="bg-[linear-gradient(to_right,rgba(0,0,0,0)_0%,oklch(0.714_0.203_305.504)_50%,rgba(0,0,0,0)_100%)] box-border caret-transparent h-[3px] outline-[oklab(0.708_0_0_/_0.5)] mt-4"></div>
       </div>
       <p className="text-[oklab(0.902_0.037653_-0.0505099_/_0.6)] text-lg box-border caret-transparent leading-7 max-w-2xl outline-[oklab(0.708_0_0_/_0.5)] mx-auto">
-        Let's build something amazing together
+        Open to freelance work, collaborations, and ambitious app ideas.
       </p>
     </div>
   );
