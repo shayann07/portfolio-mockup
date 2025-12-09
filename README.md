@@ -182,5 +182,3 @@ This project is licensed under the MIT License.
 - Icons from [Lucide React](https://lucide.dev/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 ```
-
-Should I adjust anything or add more details?
