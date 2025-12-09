@@ -181,4 +181,3 @@ This project is licensed under the MIT License.
 - UI components from [Radix UI](https://www.radix-ui.com/)
 - Icons from [Lucide React](https://lucide.dev/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
-```
