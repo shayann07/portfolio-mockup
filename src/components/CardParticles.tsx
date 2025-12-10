@@ -1,3 +1,4 @@
+import { useMobile } from "@/hooks";
 import { motion } from "framer-motion";
 
 // Reduced set of particles optimized for smaller cards (vs the 12 in the large footer)
@@ -12,6 +13,11 @@ const particles = [
 ];
 
 export const CardParticles = () => {
+    const isMobile = useMobile();
+
+    // Disable particles on mobile for performance
+    if (isMobile) return null;
+
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[inherit]">
             {particles.map((className, index) => {

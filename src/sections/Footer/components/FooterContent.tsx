@@ -27,7 +27,7 @@ export const FooterContent = () => {
   return (
     <div className="relative box-border caret-transparent max-w-screen-xl mx-auto outline-[oklab(0.708_0_0_/_0.5)]">
       {/* Row 1: Copyright left, Back to Top button right */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         {/* Copyright - Left */}
         <p className="text-sm text-[oklab(0.708_0_0_/_0.6)] box-border caret-transparent">
           © 2025 ·{" "}

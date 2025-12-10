@@ -27,16 +27,16 @@ export const HeroText = () => {
       </motion.div>
 
       {/* Headline */}
-      <h1 className="text-6xl font-black box-border caret-transparent tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] mb-8 md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]">
+      <h1 className="text-5xl font-black box-border caret-transparent tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] mb-8 md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]">
         <motion.span
           variants={slideInLeft}
-          className="text-white text-6xl box-border caret-transparent block tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] uppercase md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]"
+          className="text-white text-5xl box-border caret-transparent block tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] uppercase md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]"
         >
           Muhammad
         </motion.span>
         <motion.span
           variants={slideInLeft}
-          className="text-transparent text-6xl bg-clip-text bg-[linear-gradient(to_right,oklch(0.902_0.063_306.703)_0%,oklch(0.827_0.119_306.383)_50%,oklch(0.714_0.203_305.504)_100%)] box-border block tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] uppercase md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]"
+          className="text-transparent text-5xl bg-clip-text bg-[linear-gradient(to_right,oklch(0.902_0.063_306.703)_0%,oklch(0.827_0.119_306.383)_50%,oklch(0.714_0.203_305.504)_100%)] box-border block tracking-[-1.5px] leading-[57px] outline-[oklab(0.708_0_0_/_0.5)] uppercase md:text-8xl md:tracking-[-2.4px] md:leading-[91.2px]"
         >
           Shayan
         </motion.span>

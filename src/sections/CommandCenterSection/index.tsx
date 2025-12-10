@@ -164,7 +164,7 @@ export const CommandCenterSection = () => {
             }
           `}</style>
           {/* Footer status bar - inside main card */}
-          <div className="relative items-center box-border caret-transparent gap-x-4 flex justify-between outline-[oklab(0.708_0_0_/_0.5)] gap-y-4 pt-6 border-t border-[oklab(0.714_0.117894_-0.165257_/_0.2)]">
+          <div className="relative items-center box-border caret-transparent gap-x-4 flex flex-wrap justify-between outline-[oklab(0.708_0_0_/_0.5)] gap-y-4 pt-6 border-t border-[oklab(0.714_0.117894_-0.165257_/_0.2)]">
             <div className="items-center box-border caret-transparent gap-x-2.5 flex outline-[oklab(0.708_0_0_/_0.5)] gap-y-2">
               <div className="bg-[#4ADE80] box-border caret-transparent h-2.5 outline-[oklab(0.708_0_0_/_0.5)] w-2.5 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)]"></div>
               <span className="text-[oklab(0.902_0.037653_-0.0505099_/_0.8)] text-sm box-border caret-transparent leading-[18px] outline-[oklab(0.708_0_0_/_0.5)] font-medium font-mono">
