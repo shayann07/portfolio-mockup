@@ -1,8 +1,8 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ProjectCard } from "@/sections/ProjectsSection/components/ProjectCard";
 import { ProjectsHeader } from "@/sections/ProjectsSection/components/ProjectsHeader";
 import { staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 // Icon components - custom SVG icons
 const AITrustLedgerIcon = () => (
