@@ -1,5 +1,8 @@
 import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MetricCard } from "@/sections/CommandCenterSection/components/MetricCard";
+import { slideUp, staggerContainer } from "@/utils/animation-variants";
+import { motion } from "framer-motion";
 
 // Icon components - sized to match design
 const BoxIcon = () => (
@@ -30,6 +33,8 @@ const ShieldIcon = () => (
 );
 
 export const CommandCenterSection = () => {
+  const { ref, isInView } = useScrollAnimation({ amount: 0.1 });
+
   const metrics = [
     {
       icon: <BoxIcon />,
@@ -42,6 +47,7 @@ export const CommandCenterSection = () => {
       barHeights: [15, 25, 40, 55, 70, 85, 95],
       cardBg: "bg-[linear-gradient(135deg,rgba(139,92,246,0.12)_0%,rgba(88,28,135,0.06)_100%)]",
       cardBorder: "border-[rgba(139,92,246,0.25)]",
+      shadowColor: "139, 92, 246",
     },
     {
       icon: <ChartIcon />,
@@ -54,6 +60,7 @@ export const CommandCenterSection = () => {
       barHeights: [10, 20, 35, 50, 65, 85, 100],
       cardBg: "bg-[linear-gradient(135deg,rgba(20,184,166,0.12)_0%,rgba(13,148,136,0.06)_100%)]",
       cardBorder: "border-[rgba(20,184,166,0.25)]",
+      shadowColor: "20, 184, 166",
     },
     {
       icon: <LightningIcon />,
@@ -66,6 +73,7 @@ export const CommandCenterSection = () => {
       barHeights: [8, 12, 20, 35, 55, 80, 100],
       cardBg: "bg-[linear-gradient(135deg,rgba(34,197,94,0.12)_0%,rgba(22,163,74,0.06)_100%)]",
       cardBorder: "border-[rgba(34,197,94,0.25)]",
+      shadowColor: "34, 197, 94",
     },
     {
       icon: <ShieldIcon />,
@@ -78,6 +86,7 @@ export const CommandCenterSection = () => {
       barHeights: [85, 88, 90, 92, 95, 97, 100],
       cardBg: "bg-[linear-gradient(135deg,rgba(139,92,246,0.12)_0%,rgba(88,28,135,0.06)_100%)]",
       cardBorder: "border-[rgba(139,92,246,0.25)]",
+      shadowColor: "139, 92, 246",
     },
   ];
 
@@ -85,12 +94,24 @@ export const CommandCenterSection = () => {
     <section id="command-center" className="relative bg-zinc-950 box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] overflow-hidden px-6 py-32 md:px-8">
       <div className="absolute bg-[linear-gradient(oklab(0.381_0.100917_-0.144194_/_0.1)_0%,rgba(0,0,0,0)_50%,oklab(0.381_0.100917_-0.144194_/_0.1)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] inset-0"></div>
       <div className="absolute bg-[radial-gradient(circle,rgba(139,92,246,0.2)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-[600px] opacity-20 outline-[oklab(0.708_0_0_/_0.5)] w-[600px] rounded-[3.35544e+07px] left-2/4 top-2/4"></div>
-      <div className="relative box-border caret-transparent max-w-screen-xl outline-[oklab(0.708_0_0_/_0.5)] mx-auto">
-        <SectionHeader 
-          title="Command Center"
-          subtitle="Real-time performance & reliability metrics"
-        />
-        <div className="group/container relative backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.327_0.0863287_-0.123309_/_0.15)_0%,oklab(0.279_0.0738531_-0.105407_/_0.08)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border border-[oklab(0.714_0.117894_-0.165257_/_0.2)] p-8 rounded-[32px] border-solid md:p-12 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform">
+      <div ref={ref} className="relative box-border caret-transparent max-w-screen-xl outline-[oklab(0.708_0_0_/_0.5)] mx-auto">
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={slideUp}
+        >
+          <SectionHeader
+            title="Command Center"
+            subtitle="Real-time performance & reliability metrics"
+          />
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={staggerContainer}
+          className="group/container relative backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.327_0.0863287_-0.123309_/_0.15)_0%,oklab(0.279_0.0738531_-0.105407_/_0.08)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border border-[oklab(0.714_0.117894_-0.165257_/_0.2)] p-8 rounded-[32px] border-solid md:p-12 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform"
+        >
           <style>{`
             @keyframes scan-beam-vertical {
               0% {
@@ -110,7 +131,7 @@ export const CommandCenterSection = () => {
             }
           `}</style>
           {/* Scanning beam animation */}
-          <div 
+          <div
             className="absolute left-0 right-0 h-[2px] pointer-events-none z-10"
             style={{
               background: `linear-gradient(to right, 
@@ -126,11 +147,14 @@ export const CommandCenterSection = () => {
             }}
           ></div>
           <div className="absolute bg-[linear-gradient(to_right_bottom,oklab(0.714_0.117894_-0.165257_/_0.03)_0%,rgba(0,0,0,0)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] rounded-[31px] inset-px"></div>
-          <div className="group/cards relative box-border caret-transparent gap-x-6 grid grid-cols-[repeat(1,minmax(0px,1fr))] outline-[oklab(0.708_0_0_/_0.5)] gap-y-6 mb-6 md:grid-cols-[repeat(4,minmax(0px,1fr))] transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform">
+          <motion.div
+            variants={staggerContainer}
+            className="group/cards relative box-border caret-transparent gap-x-6 grid grid-cols-[repeat(1,minmax(0px,1fr))] outline-[oklab(0.708_0_0_/_0.5)] gap-y-6 mb-6 md:grid-cols-[repeat(4,minmax(0px,1fr))] transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform overflow-visible"
+          >
             {metrics.map((metric, index) => (
               <MetricCard key={index} {...metric} />
             ))}
-          </div>
+          </motion.div>
           <style>{`
             .group\\/container:has(.group\\/card:hover) {
               transform: scale(1.01);
@@ -151,7 +175,7 @@ export const CommandCenterSection = () => {
               Last updated: Real-time
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

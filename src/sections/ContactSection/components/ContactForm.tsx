@@ -1,7 +1,11 @@
+import { CardParticles } from "@/components/CardParticles";
 import { personalLinks } from "@/config/personalLinks";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
 import React, { FormEvent, useState } from "react";
 
 export const ContactForm = () => {
+    const { ref, isInView } = useScrollAnimation();
     // Animation state for social icons
     const [animatedIcons, setAnimatedIcons] = React.useState<Set<number>>(new Set());
     const iconTimeoutRefs = React.useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
@@ -153,9 +157,16 @@ export const ContactForm = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto px-4 md:px-0">
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.98 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-3xl mx-auto px-4 md:px-0"
+        >
             {/* Form Card */}
-            <div className="relative backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.15)_0%,oklab(0.558_0.153983_-0.243379_/_0.08)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.3)_0px_0px_80px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-6 md:p-14 rounded-[24px] md:rounded-[32px] border-solid border-[oklab(0.714_0.117894_-0.165257_/_0.3)] transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform hover:scale-[1.01] md:hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.4)_0px_0px_100px_0px] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.5)]">
+            <div className="relative transform-gpu backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.15)_0%,oklab(0.558_0.153983_-0.243379_/_0.08)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.3)_0px_0px_80px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-6 md:p-14 rounded-[24px] md:rounded-[32px] border-solid border-[oklab(0.714_0.117894_-0.165257_/_0.3)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center will-change-[transform,box-shadow] hover:scale-[1.01] md:hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.4)_0px_0px_100px_0px] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.5)]">
+                <CardParticles />
                 {/* Inner gradient overlay */}
                 <div className="absolute bg-[linear-gradient(to_right_bottom,oklab(0.714_0.117894_-0.165257_/_0.08)_0%,rgba(0,0,0,0)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] rounded-[23px] md:rounded-[31px] inset-px"></div>
 
@@ -227,8 +238,8 @@ export const ContactForm = () => {
                         type="submit"
                         disabled={isSubmitting || submitStatus === "success"}
                         className={`w-full text-white font-bold items-center bg-transparent gap-x-2 flex justify-center outline-[oklab(0.708_0_0_/_0.5)] gap-y-2 text-center px-8 py-4 rounded-[14px] transition-all duration-300 tracking-[1.5px] uppercase text-sm ${isSubmitting || submitStatus === "success"
-                                ? "cursor-not-allowed opacity-80 bg-[oklab(0.627_0.147802_-0.219953_/_0.4)]"
-                                : "bg-[linear-gradient(to_right,oklch(0.558_0.288_302.321)_0%,oklch(0.496_0.265_301.924)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,oklab(0.627_0.147802_-0.219953_/_0.4)_0px_10px_15px_-3px,oklab(0.627_0.147802_-0.219953_/_0.4)_0px_4px_6px_-4px] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,oklab(0.627_0.147802_-0.219953_/_0.6)_0px_15px_25px_-5px,oklab(0.627_0.147802_-0.219953_/_0.6)_0px_8px_10px_-6px]"
+                            ? "cursor-not-allowed opacity-80 bg-[oklab(0.627_0.147802_-0.219953_/_0.4)]"
+                            : "bg-[linear-gradient(to_right,oklch(0.558_0.288_302.321)_0%,oklch(0.496_0.265_301.924)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,oklab(0.627_0.147802_-0.219953_/_0.4)_0px_10px_15px_-3px,oklab(0.627_0.147802_-0.219953_/_0.4)_0px_4px_6px_-4px] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,oklab(0.627_0.147802_-0.219953_/_0.6)_0px_15px_25px_-5px,oklab(0.627_0.147802_-0.219953_/_0.6)_0px_8px_10px_-6px]"
                             }`}
                     >
                         {isSubmitting ? (
@@ -279,6 +290,6 @@ export const ContactForm = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };

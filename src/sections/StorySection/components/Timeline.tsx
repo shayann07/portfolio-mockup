@@ -1,9 +1,46 @@
 import { icons } from "@/config/icons";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { TimelineItem } from "@/sections/StorySection/components/TimelineItem";
+import { staggerContainer } from "@/utils/animation-variants";
+import { motion } from "framer-motion";
 
 export const Timeline = () => {
+  const { ref, isInView } = useScrollAnimation({ amount: 0.1 });
+
+  const lineVariant = {
+    hidden: { height: "0%" },
+    visible: {
+      height: "100%",
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const slideInLeft80 = {
+    hidden: { opacity: 0, y: 20, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const slideInRight80 = {
+    hidden: { opacity: 0, y: 20, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className="relative box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
+    <div ref={ref} className="relative box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
+      {/* Styles omitted for brevity, keeping them if they were inline or handled by CSS file. 
+          Assuming styles are needed, I should keep them. 
+          The previous tool call had styles in <style> block inside the component. I must preserve them.
+       */}
       <style>{`
         @keyframes timeline-dot-glow-breathe-1 {
           0%, 100% {
@@ -89,8 +126,19 @@ export const Timeline = () => {
           animation: timeline-dot-glow-breathe-3 3s ease-in-out infinite, timeline-dot-blink-3 6s cubic-bezier(0.33, 1, 0.68, 1) 0s infinite;
         }
       `}</style>
-      <div className="absolute bg-[linear-gradient(rgba(139,92,246,0.6)_0%,rgba(168,85,247,0.4)_50%,rgba(139,92,246,0.6)_100%)] shadow-[rgba(139,92,246,0.5)_0px_0px_20px_0px] box-border caret-transparent h-full outline-[oklab(0.708_0_0_/_0.5)] w-0.5 left-8 inset-y-0 md:left-1/2 md:-translate-x-1/2"></div>
-      <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
+      <motion.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={lineVariant}
+        className="absolute bg-[linear-gradient(rgba(139,92,246,0.6)_0%,rgba(168,85,247,0.4)_50%,rgba(139,92,246,0.6)_100%)] shadow-[rgba(139,92,246,0.5)_0px_0px_20px_0px] box-border caret-transparent h-full outline-[oklab(0.708_0_0_/_0.5)] w-0.5 left-8 inset-y-0 md:left-1/2 md:-translate-x-1/2Origin-top"
+        style={{ originY: 0 }}
+      ></motion.div>
+      <motion.div
+        className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+      >
         <TimelineItem
           variant="mb-16 md:flex-row"
           iconSrc={icons.timeline1}
@@ -98,6 +146,7 @@ export const Timeline = () => {
           title="Freelance Android Developer"
           organization="Independent"
           period="2024 → Now"
+          customVariants={slideInLeft80}
           bulletPoints={[
             { text: "3 production apps shipped with 10k+ combined installs" },
             {
@@ -117,6 +166,7 @@ export const Timeline = () => {
           title="Android Developer Intern"
           organization="Appverse Technologies"
           period="2025"
+          customVariants={slideInRight80}
           bulletPoints={[
             { text: "Built modular Compose UI with MVVM architecture" },
             { text: "Integrated REST/GraphQL APIs with Retrofit + Apollo" },
@@ -134,6 +184,7 @@ export const Timeline = () => {
           title="BS Software Engineering"
           organization="University of Sargodha"
           period="2021 – 2025"
+          customVariants={slideInLeft80}
           bulletPoints={[
             {
               text: "Specialized in mobile development & software architecture",
@@ -148,7 +199,7 @@ export const Timeline = () => {
             },
           ]}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

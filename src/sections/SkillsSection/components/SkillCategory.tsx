@@ -3,54 +3,54 @@ import React from "react";
 // Icon components
 const MobileDevIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M12 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2" />
+    <path d="M12 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
 const ArchitectureIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M5 21V7l5-4v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M19 21V3l-5 4v14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M9 21V9l3-2v14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M5 21V7l5-4v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M19 21V3l-5 4v14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M9 21V9l3-2v14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const BackendIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-    <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
+    <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
 const DatabaseIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" strokeWidth="2"/>
-    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" stroke="currentColor" strokeWidth="2"/>
-    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="currentColor" strokeWidth="2"/>
+    <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" strokeWidth="2" />
+    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" stroke="currentColor" strokeWidth="2" />
+    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
 
 const MLIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <circle cx="9" cy="9" r="2" fill="currentColor"/>
-    <circle cx="15" cy="9" r="2" fill="currentColor"/>
-    <path d="M9 15h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+    <circle cx="9" cy="9" r="2" fill="currentColor" />
+    <circle cx="15" cy="9" r="2" fill="currentColor" />
+    <path d="M9 15h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
 const ToolsIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const TestingIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -207,21 +207,31 @@ const variantConfig: Record<
   },
 };
 
+import { slideUp } from "@/utils/animation-variants";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
 export const SkillCategory = (props: SkillCategoryProps) => {
   const config = variantConfig[props.variant];
   const IconComponent = iconMap[props.title] || (() => null);
 
-  const defaultGlow = config.glowShadow;
-  const defaultGlowHover = config.glowShadowHover;
+  const defaultGlow = config.glowShadow
+    ? config.glowShadow.replace("0.12)", "0.26)").replace("60px", "60px") // Ensure consistent intensity
+    : "0px 0px 0px 0px rgba(0,0,0,0)";
+
+  const defaultGlowHover = config.glowShadowHover
+    ? config.glowShadowHover.replace("0.15)", "0.36)").replace("70px", "80px") // Ensure consistent intensity
+    : "0px 0px 0px 0px rgba(0,0,0,0)";
+
   const defaultSidebarGlow = config.sidebarGlow;
   const defaultIconGlow = config.iconGlow;
 
   // Chip animation state - track which chips are animated
-  const [animatedChips, setAnimatedChips] = React.useState<Set<number>>(new Set());
-  const chipTimeoutRefs = React.useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
+  const [animatedChips, setAnimatedChips] = useState<Set<number>>(new Set());
+  const chipTimeoutRefs = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
 
   // Cleanup timeouts on unmount
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       chipTimeoutRefs.current.forEach((timeout) => {
         clearTimeout(timeout);
@@ -231,17 +241,18 @@ export const SkillCategory = (props: SkillCategoryProps) => {
   }, []);
 
   return (
-    <div className={`${props.colSpan}`}>
-      <div
+    <motion.div
+      variants={slideUp}
+      className={`${props.colSpan}`}
+    >
+      <motion.div
         data-skill-card
-        style={{
-          boxShadow: defaultGlow,
-        }}
-        className={`relative backdrop-blur-2xl box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-8 rounded-3xl border-solid transition-all duration-700 ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)] origin-center will-change-transform hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] cursor-pointer ${config.card} ${config.cardBorder} ${config.cardBorderHover}`}
-        onMouseEnter={(e) => {
+        whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+        className={`relative transform-gpu backdrop-blur-xl box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border p-6 rounded-2xl border-solid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center group/card overflow-hidden ${config.card} ${config.cardBorder} hover:shadow-lg`}
+        onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
           e.currentTarget.style.boxShadow = defaultGlowHover;
         }}
-        onMouseLeave={(e) => {
+        onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
           e.currentTarget.style.boxShadow = defaultGlow;
         }}
       >
@@ -299,7 +310,7 @@ export const SkillCategory = (props: SkillCategoryProps) => {
                     clearTimeout(existingTimeout);
                     chipTimeoutRefs.current.delete(index);
                   }
-                  
+
                   // Set timeout for 400ms delay before animation starts
                   const timeout = setTimeout(() => {
                     setAnimatedChips((prev) => {
@@ -309,7 +320,7 @@ export const SkillCategory = (props: SkillCategoryProps) => {
                     });
                     chipTimeoutRefs.current.delete(index);
                   }, 400);
-                  
+
                   chipTimeoutRefs.current.set(index, timeout);
                 }}
                 onMouseLeave={() => {
@@ -319,7 +330,7 @@ export const SkillCategory = (props: SkillCategoryProps) => {
                     clearTimeout(existingTimeout);
                     chipTimeoutRefs.current.delete(index);
                   }
-                  
+
                   // Set timeout for 400ms delay before animation ends
                   const timeout = setTimeout(() => {
                     setAnimatedChips((prev) => {
@@ -329,7 +340,7 @@ export const SkillCategory = (props: SkillCategoryProps) => {
                     });
                     chipTimeoutRefs.current.delete(index);
                   }, 400);
-                  
+
                   chipTimeoutRefs.current.set(index, timeout);
                 }}
               >
@@ -338,7 +349,7 @@ export const SkillCategory = (props: SkillCategoryProps) => {
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

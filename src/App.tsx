@@ -8,8 +8,14 @@ import { Navbar } from "@/sections/Navbar";
 import { ProjectsSection } from "@/sections/ProjectsSection";
 import { SkillsSection } from "@/sections/SkillsSection";
 import { StorySection } from "@/sections/StorySection";
+import { useEffect } from "react";
 
 export const App = () => {
+  // Scroll to top on page load/reload
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="text-[oklch(0.145_0_0)] text-base not-italic normal-nums font-normal accent-auto bg-white box-border caret-transparent block tracking-[normal] leading-6 list-outside list-disc outline-[oklab(0.708_0_0_/_0.5)] pointer-events-auto text-start indent-[0px] normal-case visible border-separate font-inter">
       <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">

@@ -1,3 +1,6 @@
+import { CardParticles } from "@/components/CardParticles";
+import { Variants, motion } from "framer-motion";
+
 export type TimelineItemProps = {
   variant: string;
   iconSrc: string;
@@ -9,6 +12,7 @@ export type TimelineItemProps = {
     text: string;
     isLast?: boolean;
   }>;
+  customVariants?: Variants;
 };
 
 export const TimelineItem = (props: TimelineItemProps) => {
@@ -24,13 +28,15 @@ export const TimelineItem = (props: TimelineItemProps) => {
       <div
         className={`box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] w-full ml-20 md:w-[calc(50%_-_48px)] md:ml-0 ${props.variant === "mb-16 md:flex-row" || props.variant === "md:flex-row" ? "pr-0 md:pr-6" : "pl-0 md:pl-6"}`}
       >
-        <div
+        <motion.div
+          whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}
           data-timeline-card
-          className={`relative backdrop-blur-2xl shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.15)_0px_0px_60px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-8 rounded-3xl border-solid transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center will-change-transform hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.25)_0px_0px_70px_0px] hover:brightness-[1.05] cursor-pointer ${props.variant === "mb-16 md:flex-row" ? "bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.1)_0%,oklab(0.558_0.153983_-0.243379_/_0.05)_100%)] border-[oklab(0.714_0.117894_-0.165257_/_0.2)] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.3)]" : props.variant === "mb-16 md:flex-row-reverse" ? "bg-[linear-gradient(to_right_bottom,oklab(0.606_0.096545_-0.230606_/_0.1)_0%,oklab(0.541_0.109836_-0.258645_/_0.05)_100%)] border-[oklab(0.702_0.0730911_-0.16777_/_0.2)] hover:border-[oklab(0.702_0.0730911_-0.16777_/_0.3)]" : "bg-[linear-gradient(to_right_bottom,oklab(0.585_0.0288678_-0.231205_/_0.1)_0%,oklab(0.511_0.0317755_-0.260066_/_0.05)_100%)] border-[oklab(0.673_0.0219752_-0.180668_/_0.2)] hover:border-[oklab(0.673_0.0219752_-0.180668_/_0.3)]"}`}
+          className={`relative transform-gpu backdrop-blur-2xl shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.26)_0px_0px_60px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-8 rounded-3xl border-solid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center will-change-[transform,box-shadow] hover:z-50 hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.36)_0px_0px_80px_0px] hover:brightness-[1.1] cursor-pointer ${props.variant === "mb-16 md:flex-row" ? "bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.1)_0%,oklab(0.558_0.153983_-0.243379_/_0.05)_100%)] border-[oklab(0.714_0.117894_-0.165257_/_0.2)] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.3)]" : props.variant === "mb-16 md:flex-row-reverse" ? "bg-[linear-gradient(to_right_bottom,oklab(0.606_0.096545_-0.230606_/_0.1)_0%,oklab(0.541_0.109836_-0.258645_/_0.05)_100%)] border-[oklab(0.702_0.0730911_-0.16777_/_0.2)] hover:border-[oklab(0.702_0.0730911_-0.16777_/_0.3)]" : "bg-[linear-gradient(to_right_bottom,oklab(0.585_0.0288678_-0.231205_/_0.1)_0%,oklab(0.511_0.0317755_-0.260066_/_0.05)_100%)] border-[oklab(0.673_0.0219752_-0.180668_/_0.2)] hover:border-[oklab(0.673_0.0219752_-0.180668_/_0.3)]"}`}
         >
           <div
             className={`absolute box-border caret-transparent opacity-50 outline-[oklab(0.708_0_0_/_0.5)] w-[3px] inset-y-0 ${props.variant === "mb-16 md:flex-row" ? "bg-[linear-gradient(oklch(0.714_0.203_305.504)_0%,oklch(0.627_0.265_303.9)_50%,oklch(0.714_0.203_305.504)_100%)] shadow-[rgba(139,92,246,0.8)_0px_0px_20px_0px] right-0" : props.variant === "mb-16 md:flex-row-reverse" ? "bg-[linear-gradient(oklch(0.702_0.183_293.541)_0%,oklch(0.606_0.25_292.717)_50%,oklch(0.702_0.183_293.541)_100%)] shadow-[rgba(139,92,246,0.7)_0px_0px_20px_0px] left-0" : "bg-[linear-gradient(oklch(0.673_0.182_276.935)_0%,oklch(0.585_0.233_277.117)_50%,oklch(0.673_0.182_276.935)_100%)] shadow-[rgba(99,102,241,0.7)_0px_0px_20px_0px] right-0"}`}
           ></div>
+          <CardParticles />
           <div className="relative box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
             <div className="items-start box-border caret-transparent gap-x-4 flex outline-[oklab(0.708_0_0_/_0.5)] gap-y-4 mb-6 group/icon">
               <div
@@ -79,9 +85,9 @@ export const TimelineItem = (props: TimelineItemProps) => {
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="box-border caret-transparent hidden min-h-0 min-w-0 outline-[oklab(0.708_0_0_/_0.5)] w-[calc(50%_-_px)] md:block md:min-h-[auto] md:min-w-[auto]"></div>
-    </div>
+    </div >
   );
 };

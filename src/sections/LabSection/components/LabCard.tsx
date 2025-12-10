@@ -3,28 +3,28 @@ import React from "react";
 // Icon components
 const GestureRecognitionIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 8l2-2 2 2M8 16l2 2 2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 6v12M6 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+    <path d="M8 8l2-2 2 2M8 16l2 2 2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M12 6v12M6 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
 
 const ModelOptimizerIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M9 9h6M9 12h6M9 15h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M18 5l-2 2M6 19l2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M19 6l-2-2M5 18l2 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="2" />
+    <path d="M9 9h6M9 12h6M9 15h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M18 5l-2 2M6 19l2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M19 6l-2-2M5 18l2 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const VoiceCommandIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M12 12v0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M12 12v0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
@@ -182,12 +182,22 @@ const variantConfig: Record<
   },
 };
 
+import { CardParticles } from "@/components/CardParticles";
+import { slideUp } from "@/utils/animation-variants";
+import { motion } from "framer-motion";
+
 export const LabCard = (props: LabCardProps) => {
   const config = variantConfig[props.variant];
   const IconComponent = iconMap[props.title] || (() => null);
 
-  const defaultGlow = config.glowShadow;
-  const defaultGlowHover = config.glowShadowHover;
+  const defaultGlow = config.glowShadow
+    ? config.glowShadow.replace("0.12)", "0.26)").replace("60px", "60px") // Ensure consistent intensity
+    : "0px 0px 0px 0px rgba(0,0,0,0)";
+
+  const defaultGlowHover = config.glowShadowHover
+    ? config.glowShadowHover.replace("0.15)", "0.36)").replace("70px", "80px") // Ensure consistent intensity
+    : "0px 0px 0px 0px rgba(0,0,0,0)";
+
   const defaultSidebarGlow = config.sidebarGlow;
   const defaultIconGlow = config.iconGlow;
 
@@ -206,19 +216,23 @@ export const LabCard = (props: LabCardProps) => {
   }, []);
 
   return (
-    <div
+    <motion.div
+      variants={slideUp}
+      whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}
       data-lab-card
       style={{
         boxShadow: defaultGlow,
       }}
-      className={`relative backdrop-blur-2xl box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-8 rounded-3xl border-solid transition-all duration-700 ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)] origin-center will-change-transform hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] cursor-pointer ${config.card} ${config.cardBorder} ${config.cardBorderHover}`}
-      onMouseEnter={(e) => {
+      className={`group/card relative transform-gpu backdrop-blur-2xl box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border p-8 rounded-3xl border-solid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center will-change-[transform,box-shadow] hover:z-50 hover:brightness-[1.1] cursor-pointer ${config.card} ${config.cardBorder} hover:border-[oklab(0.714_0.117894_-0.165257_/_0.3)] hover:border-opacity-60`}
+      onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
         e.currentTarget.style.boxShadow = defaultGlowHover;
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
         e.currentTarget.style.boxShadow = defaultGlow;
       }}
     >
+      <CardParticles />
+      {/* Background gradient overlay */}
       <div
         style={{
           boxShadow: defaultSidebarGlow,
@@ -276,7 +290,7 @@ export const LabCard = (props: LabCardProps) => {
                   clearTimeout(existingTimeout);
                   chipTimeoutRefs.current.delete(index);
                 }
-                
+
                 const timeout = setTimeout(() => {
                   setAnimatedChips((prev) => {
                     const newSet = new Set(prev);
@@ -285,7 +299,7 @@ export const LabCard = (props: LabCardProps) => {
                   });
                   chipTimeoutRefs.current.delete(index);
                 }, 400);
-                
+
                 chipTimeoutRefs.current.set(index, timeout);
               }}
               onMouseLeave={() => {
@@ -294,7 +308,7 @@ export const LabCard = (props: LabCardProps) => {
                   clearTimeout(existingTimeout);
                   chipTimeoutRefs.current.delete(index);
                 }
-                
+
                 const timeout = setTimeout(() => {
                   setAnimatedChips((prev) => {
                     const newSet = new Set(prev);
@@ -303,7 +317,7 @@ export const LabCard = (props: LabCardProps) => {
                   });
                   chipTimeoutRefs.current.delete(index);
                 }, 400);
-                
+
                 chipTimeoutRefs.current.set(index, timeout);
               }}
             >
@@ -312,6 +326,6 @@ export const LabCard = (props: LabCardProps) => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
