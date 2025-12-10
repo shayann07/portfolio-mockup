@@ -26,7 +26,7 @@ export const TimelineItem = (props: TimelineItemProps) => {
         ></div>
       </div>
       <div
-        className={`box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] w-auto ml-20 md:w-[calc(50%_-_48px)] md:ml-0 ${props.variant === "mb-16 md:flex-row" || props.variant === "md:flex-row" ? "pr-0 md:pr-6" : "pl-0 md:pl-6"}`}
+        className={`box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] w-auto ml-14 md:w-[calc(50%_-_48px)] md:ml-0 ${props.variant === "mb-16 md:flex-row" || props.variant === "md:flex-row" ? "pr-0 md:pr-6" : "pl-0 md:pl-6"}`}
       >
         <motion.div
           whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}

@@ -61,7 +61,6 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         onClick={onClose}
       ></div>
       <div className="absolute right-0 top-0 h-full w-[280px] backdrop-blur-2xl bg-[oklab(0.144404_0.00926093_-0.0243296_/_0.95)] border-[oklab(0.714_0.117894_-0.165257_/_0.2)] border-l border-solid shadow-[rgba(139,92,246,0.3)_0px_0px_40px_0px]">
-        <MobileParticles />
         <div className="flex flex-col gap-y-1 p-4 pt-20">
           <button
             onClick={() => handleNavClick("hero")}
