@@ -1,8 +1,8 @@
 import { icons } from "@/config/icons";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { TimelineItem } from "@/sections/StorySection/components/TimelineItem";
 import { staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export const Timeline = () => {
   const { ref, isInView } = useScrollAnimation({ amount: 0.1 });

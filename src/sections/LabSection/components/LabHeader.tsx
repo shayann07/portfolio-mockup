@@ -1,5 +1,5 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export const LabHeader = () => {
   const { ref, isInView } = useScrollAnimation();

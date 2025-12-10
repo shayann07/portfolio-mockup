@@ -1,9 +1,9 @@
 import { AnimatedRaindrops } from "@/components/AnimatedRaindrops";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ContactForm } from "@/sections/ContactSection/components/ContactForm";
 import { ContactHeader } from "@/sections/ContactSection/components/ContactHeader";
 import { fadeIn } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const ContactSection = () => {
   const { ref, isInView } = useScrollAnimation({ amount: 0.3 });

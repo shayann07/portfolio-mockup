@@ -1,8 +1,8 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { LabCard } from "@/sections/LabSection/components/LabCard";
 import { LabHeader } from "@/sections/LabSection/components/LabHeader";
 import { staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const LabSection = () => {
   const { ref, isInView } = useScrollAnimation({ amount: 0.1 });

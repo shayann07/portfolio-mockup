@@ -1,8 +1,8 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { SkillCategory } from "@/sections/SkillsSection/components/SkillCategory";
 import { SkillsHeader } from "@/sections/SkillsSection/components/SkillsHeader";
 import { staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const SkillsSection = () => {
   const { ref, isInView } = useScrollAnimation({ amount: 0.1 });

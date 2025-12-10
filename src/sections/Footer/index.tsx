@@ -1,8 +1,8 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { FooterBackground } from "@/sections/Footer/components/FooterBackground";
 import { FooterContent } from "@/sections/Footer/components/FooterContent";
 import { fadeIn } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export const Footer = () => {
   const { ref, isInView } = useScrollAnimation({ amount: 0.1 });
