@@ -20,13 +20,13 @@ export const TimelineItem = (props: TimelineItemProps) => {
     <div
       className={`relative items-start box-border caret-transparent gap-x-8 flex flex-col outline-[oklab(0.708_0_0_/_0.5)] gap-y-8 md:items-center md:justify-between ${props.variant}`}
     >
-      <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] z-20 left-8 md:left-1/2 md:-translate-x-1/2 group/dot">
+      <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] z-20 left-8 -translate-x-1/2 md:left-1/2 group/dot">
         <div
           className={`timeline-dot box-border caret-transparent h-6 outline-[oklab(0.708_0_0_/_0.5)] w-6 border-gray-950 rounded-[3.35544e+07px] border-4 border-solid transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer group-hover/dot:scale-[1.32] ${props.variant === "mb-16 md:flex-row" ? "bg-[linear-gradient(to_right_bottom,oklch(0.714_0.203_305.504)_0%,oklch(0.558_0.288_302.321)_100%)] timeline-dot-variant-1" : props.variant === "mb-16 md:flex-row-reverse" ? "bg-[linear-gradient(to_right_bottom,oklch(0.702_0.183_293.541)_0%,oklch(0.541_0.281_293.009)_100%)] timeline-dot-variant-2" : "bg-[linear-gradient(to_right_bottom,oklch(0.673_0.182_276.935)_0%,oklch(0.511_0.262_276.966)_100%)] timeline-dot-variant-3"}`}
         ></div>
       </div>
       <div
-        className={`box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] w-full ml-20 md:w-[calc(50%_-_48px)] md:ml-0 ${props.variant === "mb-16 md:flex-row" || props.variant === "md:flex-row" ? "pr-0 md:pr-6" : "pl-0 md:pl-6"}`}
+        className={`box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] w-auto ml-20 md:w-[calc(50%_-_48px)] md:ml-0 ${props.variant === "mb-16 md:flex-row" || props.variant === "md:flex-row" ? "pr-0 md:pr-6" : "pl-0 md:pl-6"}`}
       >
         <motion.div
           whileHover={{ scale: 1.02, y: -4, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}

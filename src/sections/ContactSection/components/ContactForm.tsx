@@ -162,7 +162,7 @@ export const ContactForm = () => {
             initial={{ opacity: 0, y: 30, scale: 0.98 }}
             animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.98 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl mx-auto px-4 md:px-0"
+            className="max-w-3xl mx-auto md:px-0"
         >
             {/* Form Card */}
             <div className="relative transform-gpu backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.15)_0%,oklab(0.558_0.153983_-0.243379_/_0.08)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.3)_0px_0px_80px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-6 md:p-14 rounded-[24px] md:rounded-[32px] border-solid border-[oklab(0.714_0.117894_-0.165257_/_0.3)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center will-change-[transform,box-shadow] hover:scale-[1.01] md:hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.4)_0px_0px_100px_0px] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.5)]">

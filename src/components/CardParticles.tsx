@@ -12,11 +12,11 @@ const particles = [
     "absolute bg-[oklab(0.714_0.117894_-0.165257_/_0.2)] box-border caret-transparent h-1 opacity-[0.35] outline-[oklab(0.708_0_0_/_0.5)] w-1 rounded-full left-[40%] top-[10%]",
 ];
 
-export const CardParticles = () => {
+export const CardParticles = ({ forceShow = false }: { forceShow?: boolean }) => {
     const isMobile = useMobile();
 
-    // Disable particles on mobile for performance
-    if (isMobile) return null;
+    // Disable particles on mobile for performance, unless forced (e.g. Navbar)
+    if (isMobile && !forceShow) return null;
 
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[inherit]">
