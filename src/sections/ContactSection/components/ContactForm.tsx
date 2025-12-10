@@ -1,8 +1,8 @@
 import { CardParticles } from "@/components/CardParticles";
 import { personalLinks } from "@/config/personalLinks";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
 import React, { FormEvent, useState } from "react";
+import { useScrollAnimation } from "../../../hooks/useScrollAnimation";
 
 export const ContactForm = () => {
     const { ref, isInView } = useScrollAnimation();
