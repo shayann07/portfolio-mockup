@@ -1,8 +1,8 @@
 import { SectionHeader } from "@/components/SectionHeader";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MetricCard } from "@/sections/CommandCenterSection/components/MetricCard";
 import { slideUp, staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 // Icon components - sized to match design
 const BoxIcon = () => (
