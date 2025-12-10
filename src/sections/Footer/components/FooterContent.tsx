@@ -1,4 +1,5 @@
 import { ArrowUp } from "lucide-react";
+import React from "react";
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -7,61 +8,105 @@ const scrollToTop = () => {
 export const FooterContent = () => {
   const techTags = ["React", "TypeScript", "Tailwind CSS", "Motion"];
 
+  // Chip animation state
+  const [animatedChips, setAnimatedChips] = React.useState<Set<number>>(new Set());
+  const chipTimeoutRefs = React.useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
+
+  // Cleanup timeouts on unmount
+  React.useEffect(() => {
+    return () => {
+      chipTimeoutRefs.current.forEach((timeout) => {
+        clearTimeout(timeout);
+      });
+      chipTimeoutRefs.current.clear();
+    };
+  }, []);
+
+  const chipGlow = "0px 0px 12px 0px rgba(139, 92, 246, 0.4)"; // Purple glow matching footer theme
+
   return (
-    <div className="relative box-border caret-transparent max-w-screen-xl mx-auto px-6 outline-[oklab(0.708_0_0_/_0.5)]">
-      <div className="relative py-8">
-        {/* Row 1: Copyright left, Back to Top button right */}
-        <div className="flex items-center justify-between gap-4">
-          {/* Copyright - Left */}
-          <p className="text-[11px] leading-[18px] text-[oklab(0.80_0.02_-0.05_/_0.75)] box-border caret-transparent">
-            © 2025 ·{" "}
-            <span className="text-[oklch(0.902_0.063_306.703)]">
-              Muhammad Shayan
-            </span>{" "}
-            · shayxo.dev
-          </p>
+    <div className="relative box-border caret-transparent max-w-screen-xl mx-auto outline-[oklab(0.708_0_0_/_0.5)]">
+      {/* Row 1: Copyright left, Back to Top button right */}
+      <div className="flex items-center justify-between gap-4">
+        {/* Copyright - Left */}
+        <p className="text-sm text-[oklab(0.708_0_0_/_0.6)] box-border caret-transparent">
+          © 2025 ·{" "}
+          <span className="text-[oklch(0.902_0.063_306.703)]">
+            Muhammad Shayan
+          </span>{" "}
+          · shayxo.dev
+        </p>
 
-          {/* Back to Top Button - Right (flatter, subtle glow like design) */}
-          <button
-            onClick={scrollToTop}
-            className="
-              inline-flex items-center gap-2 rounded-full
-              px-7 py-2
-              text-[11px] font-semibold tracking-[0.20em] uppercase
-              text-[oklch(0.96_0.04_305.5)]
-              bg-[linear-gradient(135deg,oklch(0.66_0.20_305.5),oklch(0.56_0.18_305.5))]
-              border border-[oklch(0.78_0.23_305.5)]
-              shadow-[0_10px_24px_oklch(0.25_0.08_305.5_/_0.45)]
-              hover:shadow-[0_12px_30px_oklch(0.25_0.08_305.5_/_0.6)]
-              transition-all duration-200
-              whitespace-nowrap
-            "
+        {/* Back to Top Button - Using Download CV outline style */}
+        <button
+          onClick={scrollToTop}
+          className="text-white font-bold items-center backdrop-blur-xl bg-[oklab(0.999994_0.0000455678_0.0000200868_/_0.05)] caret-transparent gap-x-2 inline-flex justify-center outline-[oklab(0.714_0.117894_-0.165257_/_0.3)] outline outline-[0px] text-center border-[oklab(0.714_0.117894_-0.165257_/_0.3)] px-6 py-3 rounded-full text-xs tracking-widest uppercase transition-all duration-300 border border-solid hover:bg-[oklab(0.714_0.117894_-0.165257_/_0.1)] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.5)]"
+        >
+          BACK TO TOP
+          <ArrowUp className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Horizontal divider */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[oklab(0.714_0.117894_-0.165257_/_0.2)] to-transparent my-6" />
+
+      {/* Row 2: Tech tags centered */}
+      <div className="flex items-center justify-center gap-3 flex-wrap pb-2">
+        {techTags.map((tech, index) => (
+          <span
+            key={tech}
+            style={{
+              boxShadow: animatedChips.has(index) ? chipGlow : 'none',
+              transform: animatedChips.has(index) ? 'scale(1.06) translateY(-2px)' : 'scale(1) translateY(0)',
+              filter: animatedChips.has(index) ? 'brightness(1.12)' : 'brightness(1)',
+              opacity: animatedChips.has(index) ? 1 : 0.95,
+              transition: 'box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 500ms cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+            className="px-3 py-1 rounded-full border border-[oklab(0.714_0.117894_-0.165257_/_0.25)] bg-transparent text-[oklab(0.708_0_0_/_0.6)] text-[10px] tracking-wide cursor-default"
+            onMouseEnter={() => {
+              // Clear any existing timeout (including leave timeout)
+              const existingTimeout = chipTimeoutRefs.current.get(index);
+              if (existingTimeout) {
+                clearTimeout(existingTimeout);
+                chipTimeoutRefs.current.delete(index);
+              }
+
+              // Set timeout for 400ms delay before animation starts
+              const timeout = setTimeout(() => {
+                setAnimatedChips((prev) => {
+                  const newSet = new Set(prev);
+                  newSet.add(index);
+                  return newSet;
+                });
+                chipTimeoutRefs.current.delete(index);
+              }, 400);
+
+              chipTimeoutRefs.current.set(index, timeout);
+            }}
+            onMouseLeave={() => {
+              // Clear any existing timeout (including enter timeout)
+              const existingTimeout = chipTimeoutRefs.current.get(index);
+              if (existingTimeout) {
+                clearTimeout(existingTimeout);
+                chipTimeoutRefs.current.delete(index);
+              }
+
+              // Set timeout for 400ms delay before animation ends
+              const timeout = setTimeout(() => {
+                setAnimatedChips((prev) => {
+                  const newSet = new Set(prev);
+                  newSet.delete(index);
+                  return newSet;
+                });
+                chipTimeoutRefs.current.delete(index);
+              }, 400);
+
+              chipTimeoutRefs.current.set(index, timeout);
+            }}
           >
-            BACK TO TOP
-            <ArrowUp className="w-4 h-4" />
-          </button>
-        </div>
-
-        {/* Horizontal divider (same as design) */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.714_0.203_305.504_/_0.18)] to-transparent mt-8 mb-5" />
-
-        {/* Row 2: Tech tags centered */}
-        <div className="flex items-center justify-center gap-3 flex-wrap pb-6">
-          {techTags.map((tech) => (
-            <span
-              key={tech}
-              className="
-                px-4 py-1.5 rounded-full
-                border border-[oklch(0.714_0.203_305.504_/_0.35)]
-                bg-[oklch(0.225_0.03_305.5_/_0.6)]
-                text-[oklch(0.86_0.03_305.5)]
-                text-xs font-medium tracking-wide
-              "
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+            {tech}
+          </span>
+        ))}
       </div>
     </div>
   );

@@ -114,9 +114,9 @@ export const ContactForm = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto">
-            {/* Form Card - matching CTAContent card pattern */}
-            <div className="relative backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.15)_0%,oklab(0.558_0.153983_-0.243379_/_0.08)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.3)_0px_0px_80px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-8 rounded-[32px] border-solid border-[oklab(0.714_0.117894_-0.165257_/_0.3)] md:p-10">
+        <div className="max-w-3xl mx-auto">
+            {/* Form Card - with tech stack card animation */}
+            <div className="relative backdrop-blur-2xl bg-[linear-gradient(to_right_bottom,oklab(0.627_0.147802_-0.219953_/_0.15)_0%,oklab(0.558_0.153983_-0.243379_/_0.08)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.3)_0px_0px_80px_0px] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border overflow-hidden p-10 rounded-[32px] border-solid border-[oklab(0.714_0.117894_-0.165257_/_0.3)] md:p-14 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] origin-center will-change-transform hover:scale-[1.02] hover:-translate-y-1 hover:brightness-[1.05] hover:shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(139,92,246,0.4)_0px_0px_100px_0px] hover:border-[oklab(0.714_0.117894_-0.165257_/_0.5)]">
                 {/* Inner gradient overlay - matching CTAContent */}
                 <div className="absolute bg-[linear-gradient(to_right_bottom,oklab(0.714_0.117894_-0.165257_/_0.08)_0%,rgba(0,0,0,0)_100%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] rounded-[31px] inset-px"></div>
 
@@ -196,7 +196,7 @@ export const ContactForm = () => {
                                     target={link.href.startsWith("mailto") ? undefined : "_blank"}
                                     rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                                     style={styles.containerStyle}
-                                    className={`w-14 h-14 flex items-center justify-center backdrop-blur-xl bg-[${styles.bgColor}] border rounded-2xl text-[${styles.textColor}]`}
+                                    className={`w-14 h-14 flex items-center justify-center backdrop-blur-xl bg-[${styles.bgColor}] border-[0px] rounded-2xl text-[${styles.textColor}]`}
                                     onMouseEnter={() => handleIconMouseEnter(index)}
                                     onMouseLeave={() => handleIconMouseLeave(index)}
                                 >

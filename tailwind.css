@@ -142,42 +142,55 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overscroll-behavior-y: none;
+    /* Prevent bounce effect */
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-/* Custom Scrollbar - Purple to Pink Gradient */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Final Global Scrollbar Styling */
+* {
+  scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-track {
-  background: #050816;
-  border-radius: 9999px;
+*::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6 0%, #ec4899 100%);
-  border-radius: 9999px;
-  border: none;
+*::-webkit-scrollbar-track {
+  background: #050816 !important;
+  border-radius: 9999px !important;
+  border: none !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a855f7 0%, #f472b6 100%);
+*::-webkit-scrollbar-thumb {
+  background-color: transparent !important;
+  background-image: linear-gradient(180deg, #8b5cf6 0%, #ec4899 100%) !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  min-height: 85px !important;
+  /* Adjusted to 85px */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(180deg, #a855f7 0%, #f472b6 100%) !important;
 }
 
 ::-webkit-scrollbar-button {
   display: none;
   width: 0;
-  height: 0;
 }
 
 ::-webkit-scrollbar-corner {
   background: #050816;
 }
 
-/* Firefox fallback */
-html, body {
-  scrollbar-width: thin;
-  scrollbar-color: #8b5cf6 #050816;
+/* Fallback removed to force WebKit styles */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
 }

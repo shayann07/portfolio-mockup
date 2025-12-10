@@ -15,8 +15,8 @@ export const App = () => {
       <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
         <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
           <div className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]">
-            <div className="relative box-border caret-transparent basis-0 grow shrink-0 h-[952px] min-h-px min-w-px outline-[oklab(0.708_0_0_/_0.5)] w-full">
-              <div className="relative text-[oklch(0.872_0.01_258.338)] bg-gray-950 box-border caret-transparent min-h-[1000px] outline-[oklab(0.708_0_0_/_0.5)] overflow-x-hidden overflow-y-auto">
+            <div className="relative box-border caret-transparent basis-0 grow shrink-0 h-screen min-h-px min-w-px outline-[oklab(0.708_0_0_/_0.5)] w-full">
+              <div className="custom-scrollbar relative text-[oklch(0.872_0.01_258.338)] bg-gray-950 box-border caret-transparent min-h-[1000px] outline-[oklab(0.708_0_0_/_0.5)] overflow-x-hidden overflow-y-auto">
                 <CursorGlow />
                 <div className="fixed bg-[radial-gradient(900px_at_400px_300px,rgba(139,92,246,0.08),rgba(0,0,0,0)_60%)] box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] pointer-events-none z-50 inset-0"></div>
                 <div className="fixed box-border caret-transparent h-[500px] outline-[oklab(0.708_0_0_/_0.5)] pointer-events-none translate-x-[150px] translate-y-[50px] w-[500px] z-40">
