@@ -1,4 +1,4 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { motion } from "framer-motion";
 
 export const SkillsHeader = () => {

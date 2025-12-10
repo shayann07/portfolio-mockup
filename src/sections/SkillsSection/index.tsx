@@ -1,4 +1,4 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { SkillCategory } from "@/sections/SkillsSection/components/SkillCategory";
 import { SkillsHeader } from "@/sections/SkillsSection/components/SkillsHeader";
 import { staggerContainer } from "@/utils/animation-variants";

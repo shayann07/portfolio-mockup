@@ -1,5 +1,5 @@
 import { AnimatedRaindrops } from "@/components/AnimatedRaindrops";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { ContactForm } from "@/sections/ContactSection/components/ContactForm";
 import { ContactHeader } from "@/sections/ContactSection/components/ContactHeader";
 import { fadeIn } from "@/utils/animation-variants";

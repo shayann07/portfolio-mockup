@@ -1,6 +1,6 @@
 import { CardParticles } from "@/components/CardParticles";
 import { personalLinks } from "@/config/personalLinks";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { motion } from "framer-motion";
 import React, { FormEvent, useState } from "react";
 

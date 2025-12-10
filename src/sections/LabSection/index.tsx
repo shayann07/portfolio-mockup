@@ -1,4 +1,4 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { LabCard } from "@/sections/LabSection/components/LabCard";
 import { LabHeader } from "@/sections/LabSection/components/LabHeader";
 import { staggerContainer } from "@/utils/animation-variants";

@@ -1,5 +1,5 @@
 import { icons } from "@/config/icons";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { TimelineItem } from "@/sections/StorySection/components/TimelineItem";
 import { staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";

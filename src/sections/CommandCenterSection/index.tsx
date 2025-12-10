@@ -1,5 +1,5 @@
 import { SectionHeader } from "@/components/SectionHeader";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { MetricCard } from "@/sections/CommandCenterSection/components/MetricCard";
 import { slideUp, staggerContainer } from "@/utils/animation-variants";
 import { motion } from "framer-motion";

@@ -1,4 +1,4 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation } from "@/hooks";
 import { FooterBackground } from "@/sections/Footer/components/FooterBackground";
 import { FooterContent } from "@/sections/Footer/components/FooterContent";
 import { fadeIn } from "@/utils/animation-variants";
