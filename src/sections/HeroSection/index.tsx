@@ -1,6 +1,6 @@
+import { AnimatedRaindrops } from "@/components/AnimatedRaindrops";
 import { HeroBackground } from "@/sections/HeroSection/components/HeroBackground";
 import { HeroContent } from "@/sections/HeroSection/components/HeroContent";
-import { AnimatedRaindrops } from "@/sections/HeroSection/components/AnimatedRaindrops";
 
 export const HeroSection = () => {
   return (

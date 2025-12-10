@@ -1,17 +1,15 @@
 export const personalLinks = {
   email: {
-    label: "shayan@example.com",
-    link: "mailto:shayan@example.com",
+    label: "hello@shayxo.dev",
+    link: "mailto:hello@shayxo.dev",
   },
   linkedin: {
-    label: "/in/muhammad-shayan",
-    // TODO: update to real LinkedIn URL
-    link: "https://linkedin.com",
+    label: "/in/shayann07",
+    link: "https://www.linkedin.com/in/shayann07",
   },
   github: {
-    label: "@shayxo",
-    // TODO: update to real GitHub URL
-    link: "https://github.com",
+    label: "@shayann07",
+    link: "https://github.com/shayann07",
   },
 };
 

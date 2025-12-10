@@ -52,6 +52,7 @@ export const HeroText = () => {
         </button>
         <a
           href={CV_URL}
+          download="muhammad_shayan_cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white font-bold items-center backdrop-blur-xl bg-[oklab(0.999994_0.0000455678_0.0000200868_/_0.05)] caret-transparent gap-x-2 flex justify-center outline-[oklab(0.714_0.117894_-0.165257_/_0.3)] outline outline-[2.1px] gap-y-2 text-center border-[oklab(0.714_0.117894_-0.165257_/_0.3)] px-8 py-4 rounded-[14px] border-solid"
