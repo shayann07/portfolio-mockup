@@ -171,9 +171,9 @@ This project is licensed under the MIT License.
 ## 👤 Author
 
 **Muhammad Shayan**
-- GitHub: [@shayxo](https://github.com/shayxo)
-- LinkedIn: [/in/muhammad-shayan](https://linkedin.com/in/muhammad-shayan)
-- Email: shayan@example.com
+- GitHub: [@shayann07](https://github.com/shayann07)
+- LinkedIn: [/in/muhammad-shayan](https://www.linkedin.com/in/shayann07)
+- Email: hello@shayxo.dev
 
 ## 🙏 Acknowledgments
 
