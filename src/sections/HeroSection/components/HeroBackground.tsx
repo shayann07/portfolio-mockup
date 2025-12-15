@@ -7,28 +7,28 @@ export const HeroBackground = (props: HeroBackgroundProps) => {
     return (
       <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] inset-0 translate-y-[30.0%]">
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[300px] opacity-[0.31953] translate-x-[9.82px] translate-y-[-4.91px] w-[300px] left-[0%] top-[0%] md:opacity-[0.357988] md:translate-x-[29.14px] md:translate-y-[-14.57px]">
-          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[350px] opacity-[0.401757] translate-x-[-51px] translate-y-[25.5px] w-[350px] left-1/4 top-[15%] md:opacity-[0.325608] md:translate-x-[-12.768px] md:translate-y-[6.384px]">
-          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[400px] opacity-[0.323241] translate-x-[11.7px] translate-y-[-5.85px] w-[400px] left-2/4 top-[30%] md:opacity-[0.383563] md:translate-x-[41.6933px] md:translate-y-[-20.8467px]">
-          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[450px] opacity-[0.381826] translate-x-[-40.9371px] translate-y-[20.4686px] w-[450px] left-3/4 top-[45%] md:opacity-[0.424007] md:translate-x-[-61.9714px] md:translate-y-[30.9857px]">
-          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[500px] opacity-[0.474903] translate-x-[87.44px] translate-y-[-43.72px] w-[500px] left-[0%] top-[60%] md:opacity-[0.455339] md:translate-x-[77.665px] md:translate-y-[-38.8325px]">
-          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[550px] opacity-[0.325716] translate-x-[-12.8889px] translate-y-[6.44444px] w-[550px] left-1/4 top-3/4 md:opacity-[0.479265] md:translate-x-[-89.6222px] md:translate-y-[44.8111px]">
-          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[600px] opacity-[0.433922] translate-x-[66.948px] translate-y-[-33.474px] w-[600px] left-2/4 top-[10%] md:opacity-[0.498538] md:translate-x-[99.24px] md:translate-y-[-49.62px]">
-          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
         <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] h-[650px] opacity-[0.435707] translate-x-[-67.8618px] translate-y-[33.9309px] w-[650px] left-3/4 top-1/4 md:opacity-[0.485814] md:translate-x-[-92.9164px] md:translate-y-[46.4582px]">
-          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
+          <div className="bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,rgba(0,0,0,0)_70%)] box-border caret-transparent md:blur-[100px] h-full outline-[oklab(0.708_0_0_/_0.5)] w-full rounded-[3.35544e+07px]"></div>
         </div>
       </div>
     );

@@ -133,7 +133,7 @@ export const AnimatedRaindrops = () => {
   }, []);
 
   // Filter drops for mobile
-  const visibleDrops = isMobile ? drops.slice(0, 15) : drops;
+  if (isMobile) return null;
 
   return (
     <div
@@ -184,7 +184,7 @@ export const AnimatedRaindrops = () => {
         }
       `}</style>
 
-      {visibleDrops.map((drop) => (
+      {drops.map((drop) => (
         <div
           key={drop.id}
           className={`absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] bg-[linear-gradient(oklab(0.714_0.117894_-0.165257_/_0.4)_0%,oklab(0.827_0.0705884_-0.0958033_/_0.2)_50%,rgba(0,0,0,0)_100%)] raindrop ${drop.isThin ? "w-px" : "width-[0.5px]"

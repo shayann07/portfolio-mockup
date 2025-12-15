@@ -1,4 +1,5 @@
 import { CursorGlow } from "@/components/CursorGlow";
+import { useMobile } from "@/hooks";
 import { HeroSection } from "@/sections/HeroSection";
 import { Navbar } from "@/sections/Navbar";
 import Lenis from "lenis";
@@ -16,6 +17,7 @@ const StorySection = lazy(() => import("@/sections/StorySection").then(module =>
 export const App = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMobile();
 
   // Scroll to top on page load/reload
   useEffect(() => {
@@ -23,7 +25,7 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    if (!scrollContainerRef.current) return;
+    if (!scrollContainerRef.current || isMobile) return;
 
     const lenis = new Lenis({
       wrapper: scrollContainerRef.current,

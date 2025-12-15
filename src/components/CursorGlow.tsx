@@ -1,6 +1,8 @@
+import { useMobile } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
 
 export const CursorGlow = () => {
+  const isMobile = useMobile();
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
   const [stretch, setStretch] = useState(0);
@@ -12,6 +14,8 @@ export const CursorGlow = () => {
   const velocity = useRef({ x: 0, y: 0 });
   const lastMoveTime = useRef<number>(0);
   const isHoveringCard = useRef<boolean>(false);
+
+  if (isMobile) return null;
 
   useEffect(() => {
     // --- refined alpha-male motion parameters ---
@@ -34,7 +38,7 @@ export const CursorGlow = () => {
       // Spring‑based motion
       const dx = targetPosition.current.x - currentPosition.current.x;
       const dy = targetPosition.current.y - currentPosition.current.y;
-      
+
       // spring physics with extra delay smoothing
       velocity.current.x = velocity.current.x * damping + dx * stiffness * followDelay;
       velocity.current.y = velocity.current.y * damping + dy * stiffness * followDelay;
@@ -47,7 +51,7 @@ export const CursorGlow = () => {
 
       // Increase lag by reducing spring stiffness when speed is high
       // This makes the glow stay further behind the cursor
-      const dynamicLag = Math.min(speed / 25, 1.2); // adjust 25 → higher = stronger lag needed
+      // const dynamicLag = Math.min(speed / 25, 1.2); 
       currentPosition.current.x += velocity.current.x;
       currentPosition.current.y += velocity.current.y;
 
@@ -77,13 +81,13 @@ export const CursorGlow = () => {
     const handleMouseMove = (e: MouseEvent) => {
       targetPosition.current = { x: e.clientX, y: e.clientY };
       lastMoveTime.current = Date.now();
-      
+
       // Check if hovering over a timeline card or project card
       const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
       const timelineCard = elementUnderCursor?.closest('[data-timeline-card]');
       const projectCard = elementUnderCursor?.closest('[data-project-card]');
       isHoveringCard.current = !!(timelineCard || projectCard);
-      
+
       setOpacity(0.6);
     };
 
