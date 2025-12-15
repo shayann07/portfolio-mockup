@@ -249,6 +249,9 @@ export const SkillCategory = (props: SkillCategoryProps) => {
         data-skill-card
         whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
         className={`relative transform-gpu backdrop-blur-xl box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] border p-6 rounded-2xl border-solid transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] origin-center group/card overflow-hidden ${config.card} ${config.cardBorder} hover:shadow-lg`}
+        style={{
+          boxShadow: defaultGlow,
+        }}
         onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
           e.currentTarget.style.boxShadow = defaultGlowHover;
         }}
