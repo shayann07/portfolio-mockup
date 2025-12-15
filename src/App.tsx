@@ -14,6 +14,13 @@ const ProjectsSection = lazy(() => import("@/sections/ProjectsSection").then(mod
 const SkillsSection = lazy(() => import("@/sections/SkillsSection").then(module => ({ default: module.SkillsSection })));
 const StorySection = lazy(() => import("@/sections/StorySection").then(module => ({ default: module.StorySection })));
 
+const ScrollbarRevealer = () => {
+  useEffect(() => {
+    document.body.classList.remove('loading');
+  }, []);
+  return null;
+};
+
 export const App = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -22,6 +29,12 @@ export const App = () => {
   // Scroll to top on page load/reload
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const safetyTimeout = setTimeout(() => {
+      document.body.classList.remove('loading');
+    }, 4000);
+
+    return () => clearTimeout(safetyTimeout);
   }, []);
 
   useEffect(() => {
@@ -67,6 +80,7 @@ export const App = () => {
                   <Navbar />
                   <HeroSection />
                   <Suspense fallback={null}>
+                    <ScrollbarRevealer />
                     <StorySection />
                     <CommandCenterSection />
                     <ProjectsSection />

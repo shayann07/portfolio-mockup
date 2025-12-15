@@ -40,13 +40,25 @@
     }
 
     * {
-      scrollbar-width: auto;
-      scrollbar-color: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #8b5cf6 #050816;
+    }
+
+    body.loading .custom-scrollbar {
+      overflow-y: scroll !important;
+    }
+
+    body.loading .custom-scrollbar::-webkit-scrollbar-thumb,
+    body.loading .custom-scrollbar::-webkit-scrollbar-track,
+    body.loading .custom-scrollbar::-webkit-scrollbar-corner {
+      background: transparent !important;
+      background-image: none !important;
+      border: none !important;
     }
   </style>
 </head>
 
-<body style="background: #050816;">
+<body style="background: #050816;" class="loading">
   <div id="app"></div>
   <script type="module" src="./src/index.tsx"></script>
 </body>

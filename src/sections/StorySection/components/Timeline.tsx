@@ -130,7 +130,7 @@ export const Timeline = () => {
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={lineVariant}
-        className="absolute bg-[linear-gradient(rgba(139,92,246,0.6)_0%,rgba(168,85,247,0.4)_50%,rgba(139,92,246,0.6)_100%)] shadow-[rgba(139,92,246,0.5)_0px_0px_20px_0px] box-border caret-transparent h-full outline-[oklab(0.708_0_0_/_0.5)] w-0.5 left-8 inset-y-0 md:left-1/2 md:-translate-x-1/2Origin-top"
+        className="absolute bg-[linear-gradient(rgba(139,92,246,0.6)_0%,rgba(168,85,247,0.4)_50%,rgba(139,92,246,0.6)_100%)] shadow-[rgba(139,92,246,0.5)_0px_0px_20px_0px] box-border caret-transparent h-full outline-[oklab(0.708_0_0_/_0.5)] w-0.5 left-8 inset-y-0 md:left-1/2 md:-translate-x-1/2 origin-top"
         style={{ originY: 0 }}
       ></motion.div>
       <motion.div
