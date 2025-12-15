@@ -10,7 +10,7 @@ export const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={slideDown}
-      className="fixed bg-[oklab(0.144404_0.00926093_-0.0243296_/_0.6)] box-border caret-transparent opacity-70 outline-[oklab(0.708_0_0_/_0.5)] z-50 border-[oklab(0.714_0.117894_-0.165257_/_0.05)] border-b border-solid top-0 inset-x-0"
+      className="sticky bg-[oklab(0.144404_0.00926093_-0.0243296_/_0.6)] box-border caret-transparent opacity-70 outline-[oklab(0.708_0_0_/_0.5)] z-50 border-[oklab(0.714_0.117894_-0.165257_/_0.05)] border-b border-solid top-0 inset-x-0"
     >
       <CardParticles forceShow />
       <div className="box-border caret-transparent max-w-screen-xl outline-[oklab(0.708_0_0_/_0.5)] mx-auto px-6 md:px-8">

@@ -2,7 +2,12 @@ import { ArrowUp } from "lucide-react";
 import React from "react";
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const container = document.querySelector('.custom-scrollbar');
+  if (container) {
+    container.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 };
 
 export const FooterContent = () => {
