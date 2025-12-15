@@ -1,15 +1,17 @@
 import { CursorGlow } from "@/components/CursorGlow";
-import { CommandCenterSection } from "@/sections/CommandCenterSection";
-import { ContactSection } from "@/sections/ContactSection";
-import { Footer } from "@/sections/Footer";
 import { HeroSection } from "@/sections/HeroSection";
-import { LabSection } from "@/sections/LabSection";
 import { Navbar } from "@/sections/Navbar";
-import { ProjectsSection } from "@/sections/ProjectsSection";
-import { SkillsSection } from "@/sections/SkillsSection";
-import { StorySection } from "@/sections/StorySection";
 import Lenis from "lenis";
-import { useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
+
+// Lazy load below-the-fold sections
+const CommandCenterSection = lazy(() => import("@/sections/CommandCenterSection").then(module => ({ default: module.CommandCenterSection })));
+const ContactSection = lazy(() => import("@/sections/ContactSection").then(module => ({ default: module.ContactSection })));
+const Footer = lazy(() => import("@/sections/Footer").then(module => ({ default: module.Footer })));
+const LabSection = lazy(() => import("@/sections/LabSection").then(module => ({ default: module.LabSection })));
+const ProjectsSection = lazy(() => import("@/sections/ProjectsSection").then(module => ({ default: module.ProjectsSection })));
+const SkillsSection = lazy(() => import("@/sections/SkillsSection").then(module => ({ default: module.SkillsSection })));
+const StorySection = lazy(() => import("@/sections/StorySection").then(module => ({ default: module.StorySection })));
 
 export const App = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -62,13 +64,15 @@ export const App = () => {
                 <div ref={contentRef} className="relative box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] z-10">
                   <Navbar />
                   <HeroSection />
-                  <StorySection />
-                  <CommandCenterSection />
-                  <ProjectsSection />
-                  <SkillsSection />
-                  <LabSection />
-                  <ContactSection />
-                  <Footer />
+                  <Suspense fallback={null}>
+                    <StorySection />
+                    <CommandCenterSection />
+                    <ProjectsSection />
+                    <SkillsSection />
+                    <LabSection />
+                    <ContactSection />
+                    <Footer />
+                  </Suspense>
                 </div>
               </div>
             </div>

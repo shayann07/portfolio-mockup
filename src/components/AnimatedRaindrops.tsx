@@ -1,90 +1,124 @@
 import { useMobile } from "@/hooks";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 export const AnimatedRaindrops = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobile();
 
-  // animationSpeed is a multiplier: 1x, 2x, etc.
-  const IDLE_SPEED = 1; // ~3% faster than previous base
+  // Animation constants
+  const IDLE_SPEED = 1;
   const MIN_SPEED = IDLE_SPEED;
   const MAX_SPEED = 5;
+  const STORM_FACTOR = 70;
+  const WIND_SENSITIVITY = 0.20;
+  const BASE_DURATION = 7.76;
 
-  const [animationSpeed, setAnimationSpeed] = useState(IDLE_SPEED);
-  const [windStrength, setWindStrength] = useState(0); // -1.5 .. 1.5
-
-  const lastMousePosition = useRef({ x: 0, y: 0 });
-  const lastMoveTime = useRef(Date.now());
-  const speedDecayTimeout = useRef<number | null>(null);
-  const windDecayTimeout = useRef<number | null>(null);
+  // Mutable state (no re-renders)
+  const state = useRef({
+    animationSpeed: IDLE_SPEED,
+    windStrength: 0,
+    lastMouseX: 0,
+    lastMouseY: 0,
+    lastMoveTime: Date.now(),
+    targetSpeed: IDLE_SPEED,
+    targetWind: 0,
+    isMoving: false,
+    decayTimeout: null as number | null,
+  });
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateStyles = () => {
+      const { animationSpeed, windStrength } = state.current;
+
+      const duration = BASE_DURATION / animationSpeed;
+      const swayDuration = Math.max(6 - animationSpeed * 0.7, 3.2);
+
+      container.style.setProperty("--raindrop-duration", `${duration}s`);
+      container.style.setProperty("--raindrop-sway-duration", `${swayDuration}s`);
+      container.style.setProperty("--wind-strength", windStrength.toFixed(3));
+    };
+
+    // Initial style set
+    updateStyles();
+
+    let animationFrameId: number;
+
+    const gameLoop = () => {
+      const s = state.current;
+
+      // Interpolate current values towards targets
+      // Speed interpolation
+      if (Math.abs(s.targetSpeed - s.animationSpeed) > 0.01) {
+        s.animationSpeed += (s.targetSpeed - s.animationSpeed) * 0.1;
+      }
+
+      // Wind interpolation
+      if (Math.abs(s.targetWind - s.windStrength) > 0.001) {
+        s.windStrength += (s.targetWind - s.windStrength) * 0.1;
+      }
+
+      updateStyles();
+      animationFrameId = requestAnimationFrame(gameLoop);
+    };
+
+    // Start loop
+    gameLoop();
+
     const handleMouseMove = (e: MouseEvent) => {
       const now = Date.now();
-      const dt = now - lastMoveTime.current;
+      const s = state.current;
+      const dt = now - s.lastMoveTime;
 
       if (dt > 0) {
-        const dx = e.clientX - lastMousePosition.current.x;
-        const dy = e.clientY - lastMousePosition.current.y;
+        const dx = e.clientX - s.lastMouseX;
+        const dy = e.clientY - s.lastMouseY;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         const normalizedDt = Math.max(dt, 1);
-        const speed = dist / normalizedDt; // px per ms
+        const speed = dist / normalizedDt;
 
-        // ----- Vertical storm intensity (rain speed) -----
-        const STORM_FACTOR = 70; // sensitivity
+        // Calculate targets
         let targetSpeed = IDLE_SPEED + speed * STORM_FACTOR;
         targetSpeed = Math.min(Math.max(targetSpeed, MIN_SPEED), MAX_SPEED);
+        s.targetSpeed = targetSpeed;
 
-        setAnimationSpeed((prev) => prev + (targetSpeed - prev) * 0.25);
-
-        // ----- Horizontal wind / sway (directional) -----
-        // Positive dx = mouse moving right -> wind to the right
-        const rawWind = dx / normalizedDt; // px per ms (signed)
-        const WIND_SENSITIVITY = 0.20;
+        const rawWind = dx / normalizedDt;
         let targetWind = rawWind * WIND_SENSITIVITY;
-        // Clamp to a reasonable range so it doesn't go insane
         targetWind = Math.max(Math.min(targetWind, 1.5), -1.5);
+        s.targetWind = targetWind;
 
-        setWindStrength((prev) => prev + (targetWind - prev) * 0.25);
+        s.isMoving = true;
       }
 
-      lastMousePosition.current = { x: e.clientX, y: e.clientY };
-      lastMoveTime.current = now;
+      s.lastMouseX = e.clientX;
+      s.lastMouseY = e.clientY;
+      s.lastMoveTime = now;
 
-      // When mouse stops, glide back to idle rain speed
-      if (speedDecayTimeout.current) {
-        clearTimeout(speedDecayTimeout.current);
+      // Handle decay when stopped
+      if (s.decayTimeout) {
+        window.clearTimeout(s.decayTimeout);
       }
-      speedDecayTimeout.current = window.setTimeout(() => {
-        setAnimationSpeed((prev) => prev + (IDLE_SPEED - prev) * 0.3);
-      }, 220);
 
-      // When mouse stops, let wind slowly settle back to 0
-      if (windDecayTimeout.current) {
-        clearTimeout(windDecayTimeout.current);
-      }
-      windDecayTimeout.current = window.setTimeout(() => {
-        setWindStrength((prev) => prev * 0.7);
-      }, 260);
+      s.decayTimeout = window.setTimeout(() => {
+        s.targetSpeed = IDLE_SPEED;
+        s.targetWind = 0;
+        s.isMoving = false;
+      }, 200);
     };
 
-    // IMPORTANT: listen on window, not the container (because container has pointer-events-none)
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      if (speedDecayTimeout.current) clearTimeout(speedDecayTimeout.current);
-      if (windDecayTimeout.current) clearTimeout(windDecayTimeout.current);
+      cancelAnimationFrame(animationFrameId);
+      if (state.current.decayTimeout) {
+        window.clearTimeout(state.current.decayTimeout);
+      }
     };
-  }, []);
-
-  // Base drop duration (seconds) - slower rain
-  const baseDuration = 7.76;
-  const duration = baseDuration / animationSpeed;
-
-  // Slightly decouple sway duration so faster rain also feels more chaotic
-  const swayDuration = Math.max(6 - animationSpeed * 0.7, 3.2);
+  }, []); // Run once on mount
 
   // Generate drops deterministically
   const drops = useMemo(() => {
@@ -105,12 +139,6 @@ export const AnimatedRaindrops = () => {
     <div
       ref={containerRef}
       className="absolute inset-0 box-border overflow-hidden caret-transparent pointer-events-none opacity-[0.55]"
-      style={{
-        // cinematic shader-ish vars
-        ["--raindrop-duration" as any]: `${duration}s`,
-        ["--raindrop-sway-duration" as any]: `${swayDuration}s`,
-        ["--wind-strength" as any]: windStrength.toFixed(3),
-      }}
     >
       <style>{`
         @keyframes raindrop-fall {
@@ -173,3 +201,4 @@ export const AnimatedRaindrops = () => {
     </div>
   );
 };
+
