@@ -15,9 +15,9 @@ export const CursorGlow = () => {
   const lastMoveTime = useRef<number>(0);
   const isHoveringCard = useRef<boolean>(false);
 
-  if (isMobile) return null;
-
   useEffect(() => {
+    if (isMobile) return;
+
     // --- refined alpha-male motion parameters ---
     const stiffness = 0.06;   // was 0.16 → now slower + smoother
     const damping = 0.88;     // was 0.80 → now heavier, more glide
@@ -107,7 +107,9 @@ export const CursorGlow = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div
