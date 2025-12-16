@@ -133,8 +133,8 @@ export const Timeline = () => {
         className="absolute bg-[linear-gradient(rgba(139,92,246,0.6)_0%,rgba(168,85,247,0.4)_50%,rgba(139,92,246,0.6)_100%)] shadow-[rgba(139,92,246,0.5)_0px_0px_20px_0px] box-border caret-transparent h-full outline-[oklab(0.708_0_0_/_0.5)] w-0.5 left-8 inset-y-0 md:left-1/2 md:-translate-x-1/2 origin-top"
         style={{ originY: 0 }}
       ></motion.div>
-      <motion.div
-        className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)]"
+      <motion.ol
+        className="box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] list-none p-0 m-0"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={staggerContainer}
@@ -143,7 +143,7 @@ export const Timeline = () => {
           variant="mb-16 md:flex-row"
           iconSrc={icons.timeline1}
           iconAlt="Icon"
-          title="Freelance Android Developer"
+          title="Independent Mobile Engineer"
           organization="Independent"
           period="2024 → Now"
           customVariants={slideInLeft80}
@@ -199,7 +199,7 @@ export const Timeline = () => {
             },
           ]}
         />
-      </motion.div>
+      </motion.ol>
     </div>
   );
 };

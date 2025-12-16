@@ -73,12 +73,14 @@ export const HeroText = () => {
         <motion.button
           variants={scaleUp}
           onClick={() => scrollToSection("projects")}
+          aria-label="Navigate to featured projects"
           className="text-white font-bold items-center bg-transparent bg-[linear-gradient(to_right,oklch(0.558_0.288_302.321)_0%,oklch(0.496_0.265_301.924)_100%)] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,oklab(0.627_0.147802_-0.219953_/_0.3)_0px_10px_15px_-3px,oklab(0.627_0.147802_-0.219953_/_0.3)_0px_4px_6px_-4px] caret-transparent gap-x-2 flex justify-center outline-[oklab(0.708_0_0_/_0.5)] gap-y-2 text-center px-8 py-4 rounded-[14px]"
         >
           View My Work
           <img
             src={icons.arrowRight}
-            alt="Icon"
+            alt=""
+            aria-hidden="true"
             className="box-border caret-transparent h-5 outline-[oklab(0.708_0_0_/_0.5)] w-5"
           />
         </motion.button>
@@ -88,11 +90,13 @@ export const HeroText = () => {
           download="muhammad_shayan_cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Download Curriculum Vitae"
           className="text-white font-bold items-center backdrop-blur-xl bg-[oklab(0.999994_0.0000455678_0.0000200868_/_0.05)] caret-transparent gap-x-2 flex justify-center outline-[oklab(0.714_0.117894_-0.165257_/_0.3)] outline outline-[2.1px] gap-y-2 text-center border-[oklab(0.714_0.117894_-0.165257_/_0.3)] px-8 py-4 rounded-[14px] border-solid"
         >
           <img
             src={icons.calendar}
-            alt="Icon"
+            alt=""
+            aria-hidden="true"
             className="box-border caret-transparent h-5 outline-[oklab(0.708_0_0_/_0.5)] w-5"
           />
           Download CV

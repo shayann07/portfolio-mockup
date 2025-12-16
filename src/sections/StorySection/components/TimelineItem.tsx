@@ -17,7 +17,7 @@ export type TimelineItemProps = {
 
 export const TimelineItem = (props: TimelineItemProps) => {
   return (
-    <div
+    <li
       className={`relative items-stretch box-border caret-transparent gap-x-8 flex flex-col outline-[oklab(0.708_0_0_/_0.5)] gap-y-8 md:flex-row md:items-center md:justify-between ${props.variant}`}
     >
       <div className="absolute box-border caret-transparent outline-[oklab(0.708_0_0_/_0.5)] z-20 left-8 top-1/2 -translate-x-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:left-1/2 group/dot">
@@ -88,6 +88,6 @@ export const TimelineItem = (props: TimelineItemProps) => {
         </motion.div>
       </div>
       <div className="box-border caret-transparent hidden min-h-0 min-w-0 outline-[oklab(0.708_0_0_/_0.5)] w-[calc(50%_-_48px)] md:block md:min-h-[auto] md:min-w-[auto]"></div>
-    </div >
+    </li >
   );
 };

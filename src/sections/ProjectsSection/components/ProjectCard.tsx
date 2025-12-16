@@ -172,7 +172,7 @@ export const ProjectCard = (props: ProjectCardProps) => {
   const defaultChipGlow = config.chipGlow || "0px 0px 12px 0px rgba(139, 92, 246, 0.4)";
 
   return (
-    <motion.div
+    <motion.article
       variants={cardInternalVariants}
       whileHover={{
         scale: 1.02,
@@ -291,6 +291,6 @@ export const ProjectCard = (props: ProjectCardProps) => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };

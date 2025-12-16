@@ -64,8 +64,13 @@ setTimeout(() => {
   // Empty
 }, 0);
 
+
+import { HelmetProvider } from "react-helmet-async";
+
 ReactDOM.createRoot(document.getElementById("app")!).render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>,
 );
